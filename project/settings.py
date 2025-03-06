@@ -130,7 +130,29 @@ STATICFILES_DIRS=[
 ]
 
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#informing the app to know that we are using custom user model for authentication 
+
+AUTH_USER_MODEL = 'accounts.Account'
+
+
+# adding this for showing messages to the user
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR : 'danger',
+}
+
+EMAIL_BACKEND = 'anymail.backends.sendinblue.EmailBackend'
+ANYMAIL = {
+    "SENDINBLUE_API_KEY": "*",
+    "SEND_DEFAULTS": {
+        "tags": ["app"]
+    },
+    "DEBUG_API_REQUESTS": DEBUG,
+}
