@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'accounts',
     'carts',
     'category',
+    'orders',
     'store',
+    'anymail',
+    'fontawesomefree'
 ]
 
 MIDDLEWARE = [
